@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun AppNav(
     todayVm: TodayViewModel,
+    trendsVm: TrendsViewModel,
     isListening: Boolean,
     onStart: () -> Unit,
     onStop: () -> Unit
@@ -28,6 +29,7 @@ fun AppNav(
         composable("main") {
             MainShell(
                 todayVm = todayVm,
+                trendsVm = trendsVm,
                 isListening = isListening,
                 onStart = onStart,
                 onStop = onStop

@@ -55,5 +55,11 @@ interface DailyWordStatsDao {
 
     @Query("SELECT * FROM daily_word_stats WHERE date = :date LIMIT 1")
     fun observeByDate(date: String): kotlinx.coroutines.flow.Flow<DailyWordStats?>
+
+    @Query("SELECT * FROM daily_word_stats ORDER BY date ASC")
+    fun observeAll(): Flow<List<DailyWordStats>>
+
+    @Query("SELECT * FROM daily_word_stats WHERE date >= :startDate AND date <= :endDate ORDER BY date ASC")
+    fun observeRange(startDate: String, endDate: String): Flow<List<DailyWordStats>>
 }
 

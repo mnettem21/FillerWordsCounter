@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import com.example.fillerwordscounter.service.ListeningService
 import androidx.activity.viewModels
 import com.example.fillerwordscounter.ui.TodayViewModel
+import com.example.fillerwordscounter.ui.TrendsViewModel
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
@@ -20,6 +21,7 @@ import com.example.fillerwordscounter.ui.theme.FillerWordsCounterTheme
 class MainActivity : ComponentActivity() {
 
     private val todayVm: TodayViewModel by viewModels()
+    private val trendsVm: TrendsViewModel by viewModels()
     private var isListening by mutableStateOf(false)
 
     private val requestMicPermission =
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
             FillerWordsCounterTheme {
                 AppNav(
                     todayVm = todayVm,
+                    trendsVm = trendsVm,
                     isListening = isListening,
                     onStart = { requestMicPermission.launch(android.Manifest.permission.RECORD_AUDIO) },
                     onStop = {

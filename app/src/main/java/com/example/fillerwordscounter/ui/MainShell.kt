@@ -12,6 +12,7 @@ import com.example.fillerwordscounter.ui.theme.AppColors
 @Composable
 fun MainShell(
     todayVm: TodayViewModel,
+    trendsVm: TrendsViewModel,
     isListening: Boolean,
     onStart: () -> Unit,
     onStop: () -> Unit
@@ -67,10 +68,10 @@ fun MainShell(
                 )
             }
             composable(Routes.TODAY) {
-                StatsScreen(vm = todayVm)
+                TodayScreen(viewModel = todayVm)
             }
             composable(Routes.TRENDS) {
-                TrendsScreen()
+                TrendsScreen(viewModel = trendsVm)
             }
         }
     }
